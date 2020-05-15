@@ -10,8 +10,12 @@ void push(stack_t **stack, unsigned int line_number)
 	UNUSED(line_number);
 	stack_t *temp = NULL, *new = NULL;
 
-	if (!stack)
-		return;
+		
+	if (!valn)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
 	new = malloc(sizeof(stack_t));
 	if (!new)
@@ -59,5 +63,10 @@ void pall(stack_t **stack, unsigned int line_number)
 void pint(stack_t **stack, unsigned int line_number)
 {
 	UNUSED(line_number);
+	if (!(*stack))
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	printf("%d\n", (*stack)->n);
 }

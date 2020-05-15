@@ -9,7 +9,7 @@ int valn;
  */
 int mparse(FILE *fd)
 {
-	unsigned int ln = 0;
+	unsigned int ln = 0, o;
 	char *line = NULL, *tok = NULL, *arg = NULL;
 	size_t bufsize = 0;
 	stack_t *stack;
@@ -29,12 +29,19 @@ int mparse(FILE *fd)
 			if (arg)
 				valn = atoi(arg);
 
-
+			o = ln;
 			for (j = 0; ops[j].opcode; j++)
 				if (_strcmp(ops[j].opcode, tok) == 0)
 				{
 					ops[j].f(&stack, ++ln);
 				}
+			if (o == ln)
+			{
+				
+				fprintf(stderr, "L%d: unknown instruction %s\n", ln + 1, tok);
+				exit(EXIT_FAILURE);
+
+			}	
 			line = NULL;
 		}
 		else
