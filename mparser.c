@@ -37,11 +37,9 @@ int mparse(FILE *fd)
 				}
 			if (o == ln)
 			{
-				
 				fprintf(stderr, "L%d: unknown instruction %s\n", ln + 1, tok);
 				exit(EXIT_FAILURE);
-
-			}	
+			}
 			line = NULL;
 		}
 		else
