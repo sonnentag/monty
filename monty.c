@@ -8,7 +8,6 @@
  */
 int main(int argc, char *argv[])
 {
-	unsigned int ln;
 	char *file = argv[1];
 	FILE *fd;
 
