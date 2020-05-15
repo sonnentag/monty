@@ -26,8 +26,7 @@ int main(int argc, char *argv[])
 		write(2, "\n", 1);
 		exit(1);
 	}
+	mparse(fd);
 
-	ln = mparse(fd);
-	printf("Line count: %d\n", ln);
 	return (0);
 }
