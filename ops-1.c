@@ -1,4 +1,4 @@
-#include "monty.h" 
+#include "monty.h"
 
 /**
  * push - pushes to stack
@@ -10,7 +10,6 @@ void push(stack_t **stack, unsigned int line_number)
 	UNUSED(line_number);
 	stack_t *temp = NULL, *new = NULL;
 
-		
 	if (!valn)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
@@ -42,8 +41,8 @@ void push(stack_t **stack, unsigned int line_number)
 void pall(stack_t **stack, unsigned int line_number)
 {
 	UNUSED(line_number);
- 	stack_t *rev;
- 
+	stack_t *rev;
+
 	if (*stack)
 	{
 		rev = *stack;

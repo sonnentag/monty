@@ -13,16 +13,14 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		write(2, "USAGE: monty file\n", 18);
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
 	fd = fopen(file, "r");
 	if (!fd)
 	{
-		write(2, "Error: can't open file ", 23);
-		write(2, file, strlen(file));
-		write(2, "\n", 1);
+		fprintf(stderr, "Error: can't open file %s\n", file);
 		exit(EXIT_FAILURE);
 	}
 	mparse(fd);
