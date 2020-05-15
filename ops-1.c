@@ -7,6 +7,7 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
+	UNUSED(line_number);
 	stack_t *temp = NULL, *new = NULL;
 
 	if (!stack)
@@ -36,6 +37,7 @@ void push(stack_t **stack, unsigned int line_number)
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
+	UNUSED(line_number);
  	stack_t *rev;
  
 	if (*stack)
@@ -56,6 +58,6 @@ void pall(stack_t **stack, unsigned int line_number)
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
-	UNUSED(stack);
-	printf("line %d: pint\n", line_number);
+	UNUSED(line_number);
+	printf("%d\n", (*stack)->n);
 }
