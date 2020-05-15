@@ -7,8 +7,9 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
+	stack_t *temp, *new;
+
 	UNUSED(line_number);
-	stack_t *temp = NULL, *new = NULL;
 
 	if (!valn)
 	{
@@ -40,8 +41,9 @@ void push(stack_t **stack, unsigned int line_number)
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
-	UNUSED(line_number);
 	stack_t *rev;
+
+	UNUSED(line_number);
 
 	if (*stack)
 	{
