@@ -11,10 +11,11 @@ char *get_tok(char *line)
 {
 	char *tok = NULL;
 	const char *arg;
+
 	strtok(line, "\n");
-	strtok(line, "#");
 	tok = strtok(line, " \t");
 	arg = strtok(NULL, " \t");
+	printf("%d\n", atoi(arg));
 	if (arg)
 		valn = atoi(arg);
 /*		validate_arg(arg); */

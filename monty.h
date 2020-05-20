@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-extern int valn;
+extern signed int valn;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -41,7 +41,7 @@ typedef struct instruction_s
 
 char *get_tok(char *line);
 int validate_arg(const char *n);
-void free_stack(stack_t **stack);
+void free_stack(stack_t **stack, FILE *fd, char *line);
 /* ops 1 */
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);

@@ -11,25 +11,30 @@ void push(stack_t **stack, unsigned int line_number)
 
 	(void)line_number;
 
-	if (!valn)
+	if (!valn || valn == -2)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
+		valn = -1;
 	}
-
-	new = malloc(sizeof(stack_t));
-	if (!new)
+	else
 	{
-		free(new);
-		printf("Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
-	new->n = valn;
-	new->prev = NULL;
+		new = malloc(sizeof(stack_t));
+		if (!new)
+		{
+			free(new);
+			printf("Error: malloc failed\n");
+			valn = -1;
+		}
+		else
+		{
+			new->n = valn;
+			new->prev = NULL;
 
-	temp = *stack;
-	*stack = new;
-	new->next = temp;
+			temp = *stack;
+			*stack = new;
+			new->next = temp;
+		}
+	}
 /**
  *	if (temp)
  *		temp->prev = *stack;
@@ -69,7 +74,7 @@ void pint(stack_t **stack, unsigned int line_number)
 	if (!(*stack))
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
-		exit(EXIT_FAILURE);
+		valn = 0;
 	}
 	printf("%d\n", (*stack)->n);
 }
