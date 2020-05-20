@@ -37,7 +37,6 @@ int main(int argc, char *argv[])
 	{
 		str = get_tok(line);
 		if (str)
-printf("string: %s\n", str);
 			for (j = 0; ops[j].opcode; j++)
 				if (strcmp(ops[j].opcode, str) == 0)
 				{
