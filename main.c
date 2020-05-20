@@ -58,17 +58,12 @@ int main(int argc, char *argv[])
  */
 void free_stack(stack_t **stack)
 {
-	stack_t *temp;
+	stack_t *temp = NULL;
 	
-	if (stack != NULL)
+	while (*stack != NULL)
 	{
-		while ((*stack)->next)
-		{
-			(*stack) = NULL;
-			temp = (*stack);
-			(*stack) = (*stack)->next;
-			free(temp);
-		}
-		free(stack);
+			temp = (*stack)->next;
+			free(*stack);
+			(*stack) = temp;
 	}
 }
