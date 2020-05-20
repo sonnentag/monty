@@ -16,7 +16,8 @@ char *get_tok(char *line)
 	tok = strtok(line, " \t");
 	arg = strtok(NULL, " \t");
 	if (arg)
-		validate_arg(arg);
+		valn = atoi(arg);
+/*		validate_arg(arg); */
 	
 	line = NULL;
 	return (tok);
@@ -40,8 +41,7 @@ int validate_arg(const char *n)
 			else
 				return (-1);
 		}
-		if (atoi(n) <= 256)
-			valn = atoi(n);
+		valn = atoi(n);
 	}
 
 	return (0);

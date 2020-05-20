@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 	unsigned int ln = 1;
 	char *line = NULL, *str = NULL;
 	size_t bufsize = 0;
-	stack_t *stack;
+	stack_t *stack = NULL;
 	int j;
 
 	instruction_t ops[] = {
@@ -64,6 +64,7 @@ void free_stack(stack_t **stack)
 	{
 		while ((*stack)->next)
 		{
+			(*stack) = NULL;
 			temp = (*stack);
 			(*stack) = (*stack)->next;
 			free(temp);
