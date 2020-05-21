@@ -3,9 +3,9 @@
 int valn;
 
 /**
- * mparse - parse line for opcode and arg
- * @fd: file descriptor
- * Return: number of lines
+ * get_tok - get token from line and assign global
+ * @line: line got
+ * Return: tok
  */
 char *get_tok(char *line)
 {
@@ -15,19 +15,17 @@ char *get_tok(char *line)
 	strtok(line, "\n");
 	tok = strtok(line, " \t");
 	arg = strtok(NULL, " \t");
-	printf("%d\n", atoi(arg));
-	if (arg)
-		valn = atoi(arg);
-/*		validate_arg(arg); */
-	
+	valn = atoi(arg);
+
 	line = NULL;
 	return (tok);
 }
 
 
 /**
- *
- *
+ * validate_arg - validate argument for global variable
+ * @n: arg string
+ * Return: 0 on success, -1 on failure
  */
 int validate_arg(const char *n)
 {
@@ -35,7 +33,7 @@ int validate_arg(const char *n)
 	{
 		while (*n)
 		{
-			if ((*n >= 48) && (*n <= 57)) 
+			if ((*n >= 48) && (*n <= 57))
 			{
 				n++;
 			}

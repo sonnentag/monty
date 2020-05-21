@@ -15,8 +15,7 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 	int j;
 	instruction_t ops[] = {
-		{"push", push}, {"pall", pall}, {"pint", pint}, {NULL, NULL},
-		{"pop", push}, {"swap", pall}, {"add", pint}, {"nop", NULL}, {NULL, NULL}
+		{"push", push}, {"pall", pall}, {"pint", pint}, {NULL, NULL}
 	};
 
 	if (argc != 2)
@@ -48,13 +47,14 @@ int main(int argc, char *argv[])
 				}
 	}
 	free_stack(&stack, fd, line);
-
 	return (0);
 }
 
 /**
- *
- *
+ * free_stack - free stack
+ * @stack: stack
+ * @fd: file descriptor
+ * @line: line
  */
 void free_stack(stack_t **stack, FILE *fd, char *line)
 {
