@@ -15,9 +15,9 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 	int j;
 	instruction_t ops[] = {
-		{"push", push}, {"pall", pall}, {"pint", pint}, {NULL, NULL}
+		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
+		{"swap", swap}, {"add", add}, {"nop", nop}, {NULL, NULL}
 	};
-
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
